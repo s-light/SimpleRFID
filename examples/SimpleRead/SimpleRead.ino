@@ -1,9 +1,9 @@
 /*
-  Prints out the ID of any chip you scan.
-  
-  Created on 4 Apr 2019 by
-  Luai Malek and
-  Roman Schulte
+    Prints out the ID of any chip you scan.
+
+    Created on 4 Apr 2019 by
+    Luai Malek and
+    Roman Schulte
 */
 
 #include "SimpleRFID.h"
@@ -15,17 +15,19 @@ const uint8_t rfid_rx_pin = 2;
 const uint8_t rfid_tx_pin = 3;
 SimpleRFID simple_rfid(rfid_rx_pin, rfid_tx_pin);
 
-void setup() 
-{
-  Serial.begin(9600); 
+void setup() {
+    Serial.begin(9600);
+    Serial.println("SimpleRead.ino");
 }
 
 void loop() {
-  if (simple_rfid.available()) //check if data is ready to be read
-  {
-    ID = simple_rfid.readID(); //read the ID
-    Serial.println(ID); //print the String 
-  }
+    // check if data is ready to be read
+    if (simple_rfid.available()) {
+        // read the ID
+        ID = simple_rfid.readID();
+        // print the String
+        Serial.println(ID);
+    }
 
-  //Here you can add additional behaviour if wanted.
+    // Here you can add additional behaviour if wanted.
 }
